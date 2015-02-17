@@ -1,0 +1,23 @@
+{
+    "name": "metaserve-bouncer",
+    "version": "0.0.1",
+    "description": "metaserve plugin for serving optionally bounced versions of compiled files",
+    "homepage": "http://github.com/prontotype-us/metaserve-bouncer",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/prontotype-us/metaserve-bouncer.git"
+    },
+    "author": {
+        "name": "Sean Robertson",
+        "url": "http://sprobertson.com"
+    },
+    "main": "lib/index.js",
+    "dependencies": {
+        "metaserve": "0.3.x"
+    },
+    "keywords": [
+        "metaserve",
+        "bouncer"
+    ]
+}
+
