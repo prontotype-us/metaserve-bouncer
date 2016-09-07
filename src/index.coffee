@@ -7,7 +7,7 @@ class Bouncer extends Compiler
 
     compile: (bounced_filename) ->
         console.log '[Bouncer] Serving bounced ' + bounced_filename if VERBOSE
-        fs.readFile bounced_filename, cb
+        fs.readFile bounced_filename, 'utf-8', cb
 
     shouldCompile: (bounced_filename) ->
         enabled = if @options.enabled? then @options.enabled else true
