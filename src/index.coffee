@@ -1,12 +1,13 @@
 fs = require 'fs'
 Compiler = require 'metaserve/src/compiler'
 
+VERBOSE = process.env.METASERVE_VERBOSE or false
+
 class Bouncer extends Compiler
 
     compile: (bounced_filename) ->
-        return (req, res, next) ->
-            console.log '[Bouncer] Serving bounced ' + bounced_filename
-            res.sendfile bounced_filename
+        console.log '[Bouncer] Serving bounced ' + bounced_filename if VERBOSE
+        fs.readFile bounced_filename, cb
 
     shouldCompile: (bounced_filename) ->
         enabled = if @options.enabled? then @options.enabled else true
