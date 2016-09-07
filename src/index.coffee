@@ -5,7 +5,7 @@ VERBOSE = process.env.METASERVE_VERBOSE or false
 
 class Bouncer extends Compiler
 
-    compile: (bounced_filename) ->
+    compile: (bounced_filename, cb) ->
         console.log '[Bouncer] Serving bounced ' + bounced_filename if VERBOSE
         fs.readFile bounced_filename, 'utf-8', cb
 
