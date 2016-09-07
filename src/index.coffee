@@ -1,5 +1,5 @@
 fs = require 'fs'
-Compiler = require 'metaserve/src/compiler'
+Compiler = require 'metaserve/lib/compiler'
 
 VERBOSE = process.env.METASERVE_VERBOSE or false
 
