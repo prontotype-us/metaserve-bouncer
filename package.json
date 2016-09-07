@@ -1,6 +1,6 @@
 {
     "name": "metaserve-bouncer",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "metaserve plugin for serving optionally bounced versions of compiled files",
     "homepage": "http://github.com/prontotype-us/metaserve-bouncer",
     "repository": {
