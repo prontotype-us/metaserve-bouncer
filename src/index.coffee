@@ -1,18 +1,17 @@
 fs = require 'fs'
-Compiler = require 'metaserve/lib/compiler'
 
 VERBOSE = process.env.METASERVE_VERBOSE or false
 
-class Bouncer extends Compiler
+module.exports =
+    ext: '+bounced'
 
-    compile: (bounced_filename, cb) ->
-        console.log '[Bouncer] Serving bounced ' + bounced_filename if VERBOSE
-        fs.readFile bounced_filename, 'utf-8', cb
+    compile: (filename, config, context, cb) ->
+        console.log '[Bouncer.compile] Serving bounced ' + filename if VERBOSE
+        fs.readFile filename, 'utf-8', cb
 
-    shouldCompile: (bounced_filename) ->
-        enabled = if @options.enabled? then @options.enabled else true
-        return (req, res, next) ->
-            return enabled && !req.headers['x-skip-bouncer']?
-
-module.exports = (options={}) -> new Bouncer(options)
+    shouldCompile: (filename, config, context) ->
+        enabled = if config.enabled? then config.enabled else true
+        should = enabled && !context.req?.headers?['x-skip-bouncer']?
+        console.log 'should?', should
+        return should
 
