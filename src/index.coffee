@@ -11,7 +11,5 @@ module.exports =
 
     shouldCompile: (filename, config, context) ->
         enabled = if config.enabled? then config.enabled else true
-        should = enabled && !context.req?.headers?['x-skip-bouncer']?
-        console.log 'should?', should
-        return should
+        return enabled && !context.req?.headers?['x-skip-bouncer']?
 
